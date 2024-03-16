@@ -3,7 +3,8 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sidhsksjs
 local self = game.Players.LocalPlayer
 local workspace = game:GetService("Workspace")
 
-local wndw = lib:Window("VIP Turtle Hub V4 - boring...")
+local wndw = lib:Window("VIP Turtle Hub V4 - Developer testing")
+
 local T1 = wndw:Tab("Player stuff")
 local products = require(game:GetService("ReplicatedStorage")["DeveloperProductIds"]);
 
