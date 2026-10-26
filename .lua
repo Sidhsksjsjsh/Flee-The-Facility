@@ -2,7 +2,7 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sidhsksjs
 
 local workspace = game:GetService("Workspace")
 
-local wndw = lib:Window("VIP Turtle Hub V4")
+local wndw = lib:Window("VIP Turtle Hub V4.2")
 
 local T1 = wndw:Tab("Player stuff")
 local products = require(game:GetService("ReplicatedStorage")["DeveloperProductIds"])
@@ -390,14 +390,14 @@ T4:Toggle("No error while hacking the computers",false,function(value)
 	end]]
 end)
 
-env:HookCalled(function(path,args)
+--[[env:HookCalled(function(path,args)
 	if path.Name == "RemoteEvent" then
 		if args[1] == "SetPlayerMinigameResult" and noerror == true then
 			args[2] = true
 			return path.FireServer(path,unpack(args))
 		end
 	end
-end)
+end)]]
 
 local T5 = wndw:Tab("Misc")
 
@@ -448,6 +448,9 @@ T5:Dropdown("Buy unavailable bundles ( go to shop to buy it )",{"2ndAniversaryBu
 end)
 
 env:Loop(function()
+	if noerror == true then
+		game:GetService("ReplicatedStorage")["RemoteEvent"]:FireServer("SetPlayerMinigameResult",true)
+	end
 	if InfSprint == true then
 		user.Character.Humanoid.WalkSpeed = speed
 	end
