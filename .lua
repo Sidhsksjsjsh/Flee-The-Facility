@@ -166,7 +166,7 @@ env:children(CurrentMap["Value"],function(v)
 		RuntimeLoop = RunService.RenderStepped:Connect(function()
 			body:SetVisible(dooresp)
 			line:SetVisible(dooresp)
-			if workspace:IsDescendantOf(v) then
+			if CurrentMap["Value"]:FindFirstChild(v.Name) then
 				if dooresp == true then
 					if v:FindFirstChild("Door") and v["Door"]:FindFirstChild("Part") then
 						line:SetLinePosition(v["Door"]["Part"])
@@ -187,7 +187,7 @@ env:children(CurrentMap["Value"],function(v)
 		RuntimeLoop = RunService.RenderStepped:Connect(function()
 			body:SetVisible(pcesp)
 			line:SetVisible(pcesp)
-			if workspace:IsDescendantOf(v) then
+			if CurrentMap["Value"]:FindFirstChild(v.Name) then
 				if pcesp == true then
 					line:SetLinePosition(v)
 				end
@@ -215,7 +215,7 @@ env:children(CurrentMap["Value"],function(v)
 			line:SetVisible(FreezePodESP)
 			body:SetColor("Body",Color3.new(0,0,1))
 			line:SetColor(Color3.new(0,0,1))
-			if workspace:IsDescendantOf(v) then
+			if CurrentMap["Value"]:FindFirstChild(v.Name) then
 				if pcesp == true then
 					line:SetLinePosition(v)
 				end
@@ -237,7 +237,7 @@ env.getElementChanged(CurrentMap,"Value",function(v)
 		RuntimeLoop = RunService.RenderStepped:Connect(function()
 			body:SetVisible(dooresp)
 			line:SetVisible(dooresp)
-			if workspace:IsDescendantOf(v) then
+			if CurrentMap["Value"]:FindFirstChild(v.Name) then
 				if dooresp == true then
 					if v:FindFirstChild("Door") and v["Door"]:FindFirstChild("Part") then
 						line:SetLinePosition(v["Door"]["Part"])
@@ -258,7 +258,7 @@ env.getElementChanged(CurrentMap,"Value",function(v)
 		RuntimeLoop = RunService.RenderStepped:Connect(function()
 			body:SetVisible(pcesp)
 			line:SetVisible(pcesp)
-			if workspace:IsDescendantOf(v) then
+			if CurrentMap["Value"]:FindFirstChild(v.Name) then
 				if pcesp == true then
 					line:SetLinePosition(v)
 				end
@@ -286,7 +286,7 @@ env.getElementChanged(CurrentMap,"Value",function(v)
 			line:SetVisible(FreezePodESP)
 			body:SetColor("Body",Color3.new(0,0,1))
 			line:SetColor(Color3.new(0,0,1))
-			if workspace:IsDescendantOf(v) then
+			if CurrentMap["Value"]:FindFirstChild(v.Name) then
 				if pcesp == true then
 					line:SetLinePosition(v)
 				end
