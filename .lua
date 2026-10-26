@@ -497,3 +497,5 @@ elseif item == "SpookySweetsBundle" then
       products["RedNutcrackerBundle"] = 1111394671
 end
 end)
+
+lib.DeveloperEncrypt(wndw,true)
