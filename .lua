@@ -2,13 +2,14 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sidhsksjs
 
 local workspace = game:GetService("Workspace")
 
-local wndw = lib:Window("VIP Turtle Hub V4 - Developer testing")
+local wndw = lib:Window("VIP Turtle Hub V4")
 
 local T1 = wndw:Tab("Player stuff")
 local products = require(game:GetService("ReplicatedStorage")["DeveloperProductIds"])
 local RunService = game:GetService("RunService")
 local jump = 50
 local speed = 16
+local CurrentMap = game:GetService("ReplicatedStorage")["CurrentMap"] --> "Haunted Mansion by BreifAwesomeDude" • Instance
 
 local tag = env.Create.Tag()
 
@@ -89,7 +90,7 @@ env:GetPlayer(function(v)
 	local RuntimeLoop = nil
 	local line = env.Create.Line()
 	local body = env.Create.BodyColor()
-	body:Set(v)
+	body:Set(v.Character)
 	RuntimeLoop = RunService.RenderStepped:Connect(function()
 		body:SetVisible(PlayerESP)
 		line:SetVisible(PlayerESP)
@@ -120,7 +121,7 @@ env.onPlayerJoin(function(v)
 	local RuntimeLoop = nil
 	local line = env.Create.Line()
 	local body = env.Create.BodyColor()
-	body:Set(v)
+	body:Set(v.Character)
 	RuntimeLoop = RunService.RenderStepped:Connect(function()
 		body:SetVisible(PlayerESP)
 		line:SetVisible(PlayerESP)
@@ -154,9 +155,9 @@ end)
 local dooresp = false
 local pcesp = false
 local FreezePodESP = false
-
+--CurrentMap
 --game:GetService("Workspace")["School By Shortfingers"].ExitDoor.Door.Part
-env:descendant(workspace,function(v)
+env:children(CurrentMap["Value"],function(v)
 	if v.Name == "ExitDoor" then --if v.Name == "SingleDoor" or v.Name == "SingleDoor" or v.Name == "ExitDoor" then
 		local RuntimeLoop = nil
 		local line = env.Create.Line()
@@ -226,8 +227,8 @@ env:descendant(workspace,function(v)
 		end)
 	end
 end)
-
-workspace.DescendantAdded:Connect(function(v)
+--CurrentMap
+env.getElementChanged(CurrentMap,"Value",function(v)
 	if v.Name == "ExitDoor" then --if v.Name == "SingleDoor" or v.Name == "SingleDoor" or v.Name == "ExitDoor" then
 		local RuntimeLoop = nil
 		local line = env.Create.Line()
@@ -466,4 +467,4 @@ env:Loop(function()
 	end
 end)
 
-lib.DeveloperEncrypt(wndw,true)
+lib.DeveloperEncrypt(wndw,false)
